@@ -4,14 +4,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
 import styles from "./styles.module.scss"
 
-type FormValues = {
-    valueQuery: string;
-}
+import { useGlobalContext } from "../../utils/context";
 
 const Searchbar = () => {
 
     const [changeQuery, setChangeQuery] = useState("")
-    const [value, setValue] = useState<FormValues>({valueQuery: ""})
+    const { value, setValue } = useGlobalContext()
     
     const onHandleSetQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
         const inputChangeQuery = e.target.value;
@@ -31,9 +29,10 @@ const Searchbar = () => {
         <form onSubmit={onHandleSubmit}>
             <TextField
             id="outlined-basic"
-            label="Outlined"
             variant="outlined"
             size="small"
+            label="Insert username"
+            placeholder="Insert username"
             onChange={onHandleSetQuery}
             value={changeQuery}
             />
