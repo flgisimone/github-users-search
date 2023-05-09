@@ -1,19 +1,45 @@
 import React, {useState, useContext} from "react";
 
-const AppContext = React.createContext()
+const AppContext = React.createContext<ICreateContext>({
+    query: "Github",
+    setQuery: () => {},
+    user: {},
+    setUser: () => {}
+})
 
-type FormValues = {
-    valueQuery: string;
+interface IChildren {
+    children: React.ReactNode;
+  }
+
+interface ICreateContext {
+    query: string,
+    setQuery: (query: string) => void,
+    user: any,
+    setUser: (user: object) => void
 }
 
-const AppProvider = ({children}) => {
+interface IUser {
+      id: number,
+      avatar_url: string,
+      login: string,
+      updated_at: string,
+      html_url: string,
+      bio: string,
+      public_repos: string,
+      followers: string,
+      following: string,
+  }
 
-    const [value, setValue] = useState<FormValues>({valueQuery: ""})
+const AppProvider = ({children}: IChildren) => {
+
+    const [query, setQuery] = useState("Github")
+    const [user, setUser] = useState<IUser | any>({})
 
     return(
         <AppContext.Provider value = {
             {
-                value, setValue
+                query, setQuery,
+                user, setUser
             }
         }>
             {children}

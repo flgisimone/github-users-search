@@ -9,38 +9,33 @@ import { useGlobalContext } from "../../utils/context";
 const Searchbar = () => {
 
     const [changeQuery, setChangeQuery] = useState("")
-    const { value, setValue } = useGlobalContext()
+    const { setQuery } = useGlobalContext()
     
+    const onHandleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault()
+      setQuery(changeQuery)
+  }
+
     const onHandleSetQuery = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const inputChangeQuery = e.target.value;
-        setChangeQuery(inputChangeQuery)
+        setChangeQuery(e.target.value)
     }
-
-    const onHandleSubmit = (event: React.FormEvent<HTMLInputElement>) => {
-        event.preventDefault()
-        setValue(changeQuery)
-    }
-
-    console.log(changeQuery)
-    console.log(value)
     
   return (
-    <div className={styles.Searchbar}>
-        <form onSubmit={onHandleSubmit}>
-            <TextField
-            id="outlined-basic"
-            variant="outlined"
-            size="small"
-            label="Insert username"
-            placeholder="Insert username"
-            onChange={onHandleSetQuery}
-            value={changeQuery}
-            />
-            <IconButton aria-label="search">
-            <SearchIcon style={{ fill: "blue" }} />
-            </IconButton>
-        </form>
-    </div>
+    <form onSubmit={onHandleSubmit} className={styles.form}>
+        <TextField
+        sx={{width: 1}}
+        id="outlined-basic"
+        variant="outlined"
+        size="small"
+        label="Insert username"
+        placeholder="Insert username"
+        onChange={onHandleSetQuery}
+        value={changeQuery}
+        />
+        <IconButton aria-label="search">
+        <SearchIcon style={{ fill: "blue" }} />
+        </IconButton>
+    </form>
   )
 }
 
