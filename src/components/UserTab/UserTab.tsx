@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import { useEffect} from "react"
 import { useGlobalContext } from "../../utils/context"
 
 import Card from '@mui/material/Card'
@@ -9,7 +9,7 @@ import Link from '@mui/material/Link'
 import Skeleton from '@mui/material/Skeleton';
 import Stack from '@mui/material/Stack';
 
-import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+import ListuUserTab from "../ListUserTab/ListUserTab"
 
   const UserTab = () => {
     
@@ -46,34 +46,39 @@ import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDiss
                 {user.bio === null ? "Unkown Bio" : user.bio }
             </Typography>
 
-            <CardContent sx={{m: 0, p: 0, "&:last-child": {pb: 0, display: "flex", justifyContent: "space-between", gap: 2}}}>
-              <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
-                <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
-                  REPOSITORY 
-                </Typography>
-                <Typography sx={{ fontSize: 18, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
-                  {user.public_repos}
-                </Typography>
-              </Card>
+            <CardContent sx={{m: 0, p: 0, "&:last-child": {pb: 0, display: "flex", justifyContent: "space-between", gap: 2 }}}>
+              <CardContent sx={{m: 0, p: 0, "&:last-child": {pb: 0, display: "flex", justifyContent: "space-between", gap: 2 }}}>
+                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
+                  <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
+                    REPOSITORY 
+                  </Typography>
+                  <Typography sx={{ fontSize: 18, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
+                    {user.public_repos}
+                  </Typography>
+                </Card>
 
-              <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
-                <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
-                  FOLLOWER 
-                </Typography>
-                <Typography sx={{ fontSize: 18, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
-                  {user.followers}
-                </Typography>
-              </Card>
+                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
+                  <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
+                    FOLLOWER 
+                  </Typography>
+                  <Typography sx={{ fontSize: 18, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
+                    {user.followers}
+                  </Typography>
+                </Card>
 
-              <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
-                <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
-                  FOLLOWING 
-                </Typography>
-                <Typography sx={{ fontSize: 18, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
-                  {user.following}
-                </Typography>
-              </Card>
+                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
+                  <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
+                    FOLLOWING 
+                  </Typography>
+                  <Typography sx={{ fontSize: 18, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
+                    {user.following}
+                  </Typography>
+                </Card>
+              </CardContent>
             </CardContent>
+
+            <ListuUserTab />
+
           </Card>
         ) : (
           <Stack spacing={1} sx={{width: 1}}>
