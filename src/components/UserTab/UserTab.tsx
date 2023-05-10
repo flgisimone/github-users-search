@@ -42,10 +42,13 @@ import ListUserTab from "../ListUserTab/ListUserTab"
               </CardContent>
             </CardContent>
 
-            <Typography sx={{ fontSize: 16, m: 0, p: 0, pb: 0 }} color="text.secondary" gutterBottom>
-                {user.bio === null ? "Unkown Bio" : user.bio }
-            </Typography>
-
+            {
+              user.bio &&   
+              <Typography sx={{ fontSize: 16, m: 0, p: 0, pb: 0 }} color="text.secondary" gutterBottom>
+                {user.bio }
+              </Typography>
+            }
+            
             <CardContent sx={{m: 0, p: 0, "&:last-child": {pb: 0, display: "flex", justifyContent: "space-between", gap: 2 }}}>
               <CardContent sx={{m: 0, p: 0, "&:last-child": {p: 0, display: "flex", justifyContent: "space-between", gap: 2 }}}>
                 <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5, width: 1}}>
