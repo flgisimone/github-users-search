@@ -2,7 +2,8 @@ import { useState } from "react";
 import IconButton from "@mui/material/IconButton";
 import SearchIcon from "@mui/icons-material/Search";
 import TextField from "@mui/material/TextField";
-import styles from "./styles.module.scss"
+
+import "./styles.css"
 
 import { useGlobalContext } from "../../utils/context";
 
@@ -21,7 +22,7 @@ const Searchbar = () => {
     }
     
   return (
-    <form onSubmit={onHandleSubmit} className={styles.form}>
+    <form onSubmit={onHandleSubmit}>
       <img src="https://seeklogo.com/images/G/github-logo-45146A3FBE-seeklogo.com.png" alt="github avatar" width={50} />
       <TextField
         sx={{width: 1}}

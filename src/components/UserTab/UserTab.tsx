@@ -2,14 +2,14 @@ import { useEffect} from "react"
 import { useGlobalContext } from "../../utils/context"
 
 import Card from '@mui/material/Card'
-import CardContent from '@mui/material/CardContent';
+import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import Avatar from '@mui/material/Avatar'
 import Link from '@mui/material/Link'
-import Skeleton from '@mui/material/Skeleton';
-import Stack from '@mui/material/Stack';
+import Skeleton from '@mui/material/Skeleton'
+import Stack from '@mui/material/Stack'
 
-import ListuUserTab from "../ListUserTab/ListUserTab"
+import ListUserTab from "../ListUserTab/ListUserTab"
 
   const UserTab = () => {
     
@@ -27,7 +27,7 @@ import ListuUserTab from "../ListUserTab/ListUserTab"
       {
         user ? 
         (
-          <Card sx={{ minWidth: 275, p: 2, display: "flex", flexDirection: "column", gap: 2 }}>
+          <Card sx={{ minWidth: 275, p: 2, display: "flex", flexDirection: "column", gap: 2, width: 1 }}>
 
             <CardContent sx={{ display: "flex", gap: 2, alignItems: "center", p: 0}}>
               <Avatar alt={user.login} src={user.avatar_url} sx={{ width: 84, height: 84 }}/>
@@ -48,7 +48,7 @@ import ListuUserTab from "../ListUserTab/ListUserTab"
 
             <CardContent sx={{m: 0, p: 0, "&:last-child": {pb: 0, display: "flex", justifyContent: "space-between", gap: 2 }}}>
               <CardContent sx={{m: 0, p: 0, "&:last-child": {p: 0, display: "flex", justifyContent: "space-between", gap: 2 }}}>
-                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
+                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5, width: 1}}>
                   <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
                     REPOSITORY 
                   </Typography>
@@ -57,7 +57,7 @@ import ListuUserTab from "../ListUserTab/ListUserTab"
                   </Typography>
                 </Card>
 
-                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
+                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5, width: 1}}>
                   <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
                     FOLLOWER 
                   </Typography>
@@ -66,7 +66,7 @@ import ListuUserTab from "../ListUserTab/ListUserTab"
                   </Typography>
                 </Card>
 
-                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
+                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5, width: 1}}>
                   <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
                     FOLLOWING 
                   </Typography>
@@ -77,7 +77,7 @@ import ListuUserTab from "../ListUserTab/ListUserTab"
               </CardContent>
             </CardContent>
 
-            <ListuUserTab />
+            <ListUserTab />
 
           </Card>
         ) : (
