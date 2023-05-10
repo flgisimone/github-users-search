@@ -10,6 +10,9 @@ import Skeleton from '@mui/material/Skeleton'
 import Stack from '@mui/material/Stack'
 
 import ListUserTab from "../ListUserTab/ListUserTab"
+import ModalRepo from "../ModalRepo/ModalRepo"
+import ModalFollower from "../ModalFollower/ModalFollower"
+import ModalFollowing from "../ModalFollowing/ModalFollowing"
 
   const UserTab = () => {
     
@@ -51,31 +54,25 @@ import ListUserTab from "../ListUserTab/ListUserTab"
             
             <CardContent sx={{m: 0, p: 0, "&:last-child": {pb: 0, display: "flex", justifyContent: "space-between", gap: 2 }}}>
               <CardContent sx={{m: 0, p: 0, "&:last-child": {p: 0, display: "flex", justifyContent: "space-between", gap: 2 }}}>
-                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5, width: 1}}>
+                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
                   <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
                     REPOSITORY 
                   </Typography>
-                  <Typography sx={{ fontSize: 18, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
-                    {user.public_repos}
-                  </Typography>
+                  <ModalRepo />
                 </Card>
 
-                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5, width: 1}}>
+                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
                   <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
                     FOLLOWER 
                   </Typography>
-                  <Typography sx={{ fontSize: 18, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
-                    {user.followers}
-                  </Typography>
+                  <ModalFollower />
                 </Card>
 
-                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5, width: 1}}>
+                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
                   <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
                     FOLLOWING 
                   </Typography>
-                  <Typography sx={{ fontSize: 18, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
-                    {user.following}
-                  </Typography>
+                  <ModalFollowing />
                 </Card>
               </CardContent>
             </CardContent>
