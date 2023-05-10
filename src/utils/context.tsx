@@ -33,7 +33,7 @@ interface IUser {
 const AppProvider = ({children}: IChildren) => {
 
     const [query, setQuery] = useState("Github")
-    const [user, setUser] = useState<IUser | any>({})
+    const [user, setUser] = useState<IUser | {}>({})
 
     return(
         <AppContext.Provider value = {
