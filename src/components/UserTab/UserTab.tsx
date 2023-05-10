@@ -29,7 +29,7 @@ import ListuUserTab from "../ListUserTab/ListUserTab"
         (
           <Card sx={{ minWidth: 275, p: 2, display: "flex", flexDirection: "column", gap: 2 }}>
 
-            <CardContent sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center", p: 0}}>
+            <CardContent sx={{ display: "flex", gap: 2, alignItems: "center", p: 0}}>
               <Avatar alt={user.login} src={user.avatar_url} sx={{ width: 84, height: 84 }}/>
               <CardContent sx={{display: "flex", flexDirection: "column", gap: .5, m: 0, p: 0, "&:last-child": {pb: 0}}}>
                 <Typography sx={{ fontSize: 20, m: 0}} color="text.secondary" gutterBottom>
@@ -47,7 +47,7 @@ import ListuUserTab from "../ListUserTab/ListUserTab"
             </Typography>
 
             <CardContent sx={{m: 0, p: 0, "&:last-child": {pb: 0, display: "flex", justifyContent: "space-between", gap: 2 }}}>
-              <CardContent sx={{m: 0, p: 0, "&:last-child": {pb: 0, display: "flex", justifyContent: "space-between", gap: 2 }}}>
+              <CardContent sx={{m: 0, p: 0, "&:last-child": {p: 0, display: "flex", justifyContent: "space-between", gap: 2 }}}>
                 <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
                   <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
                     REPOSITORY 
