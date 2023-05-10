@@ -9,6 +9,8 @@ import EmailIcon from '@mui/icons-material/Email';
 
 import { useGlobalContext } from "../../utils/context"
 
+import "./styles.css"
+
 const ListUserTab = () => {
 
   const { user } = useGlobalContext()
