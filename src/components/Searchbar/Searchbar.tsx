@@ -22,7 +22,8 @@ const Searchbar = () => {
     
   return (
     <form onSubmit={onHandleSubmit} className={styles.form}>
-        <TextField
+      <img src="https://seeklogo.com/images/G/github-logo-45146A3FBE-seeklogo.com.png" alt="github avatar" width={50} />
+      <TextField
         sx={{width: 1}}
         id="outlined-basic"
         variant="outlined"
@@ -31,10 +32,10 @@ const Searchbar = () => {
         placeholder="Insert username"
         onChange={onHandleSetQuery}
         value={changeQuery}
-        />
-        <IconButton aria-label="search">
-        <SearchIcon style={{ fill: "blue" }} />
-        </IconButton>
+      />
+      <IconButton aria-label="search" type="submit" sx={{p: 0, m: 0}}>
+        <SearchIcon style={{ fill: "#1976d2", fontSize: 30 }} />
+      </IconButton>
     </form>
   )
 }
