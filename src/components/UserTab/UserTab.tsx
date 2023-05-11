@@ -1,4 +1,4 @@
-import { useEffect} from "react"
+import { useEffect } from "react"
 import { useGlobalContext } from "../../utils/context"
 
 import Card from '@mui/material/Card'
@@ -14,16 +14,18 @@ import ModalRepo from "../ModalRepo/ModalRepo"
 import ModalFollower from "../ModalFollower/ModalFollower"
 import ModalFollowing from "../ModalFollowing/ModalFollowing"
 
-  const UserTab = () => {
+import "./styles.css"
+
+const UserTab = () => {
+  
+  const { query,
+    user, setUser } = useGlobalContext()
     
-    const { query,
-      user, setUser } = useGlobalContext()
-    
-    useEffect(() => {
-        fetch(`https://api.github.com/users/${query}`)
-        .then(data =>  data.json())
-        .then(data => setUser(data))
-    }, [query])
+  useEffect(() => {
+    fetch(`https://api.github.com/users/${query}`)
+    .then(data =>  data.json())
+    .then(data => setUser(data))
+  }, [query])
     
   return (
     <>
@@ -50,7 +52,7 @@ import ModalFollowing from "../ModalFollowing/ModalFollowing"
                 {user.bio }
               </Typography>
             }
-            
+              
             <CardContent sx={{m: 0, p: 0, "&:last-child": {pb: 0, display: "flex", justifyContent: "space-between", gap: 2 }}}>
               <CardContent sx={{m: 0, p: 0, "&:last-child": {p: 0, display: "flex", justifyContent: "space-between", gap: 2 }}}>
                 <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
@@ -76,10 +78,20 @@ import ModalFollowing from "../ModalFollowing/ModalFollowing"
               </CardContent>
             </CardContent>
             <ListUserTab />
-          </Card>)
-         : 
-         (
-            <Stack spacing={1} sx={{width: 1}}>
+          </Card>
+        )
+        : 
+        (
+          <Stack spacing={1} sx={{display: "flex", flexDirection: "column", width: 1}}>
+            {
+              query === "" ? 
+              <>
+              <Typography sx={{fontWeight: 600, color: "#1976d2", textAlign: "center", fontSize: 20}}>Search a Octocat's friend!</Typography>
+              <img src="https://octodex.github.com/images/codercat.jpg" alt="octocat" className="octocatIcon" />
+              </>
+              : 
+              <>
+              <Typography sx={{fontWeight: 600, color: "#1976d2", textAlign: "center", fontSize: 20, width: 1, display: "flex", justifyContent: "center", alignItems: "center", gap: 1}}>OPS! User Not Found...<br />Search another or Try again!</Typography>
               <CardContent sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center",  p: 0, gap: 2}}>
               <Skeleton variant="circular" width={120} height={80} />
                 <Skeleton variant="rectangular" sx={{width: 1, height: 80}} />
@@ -90,10 +102,13 @@ import ModalFollowing from "../ModalFollowing/ModalFollowing"
               <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
               <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
               <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
-            </Stack>
-          )
-        }
-      </>
+              </>
+            }
+
+          </Stack>
+        )
+      }
+    </>
   )
 }
 
