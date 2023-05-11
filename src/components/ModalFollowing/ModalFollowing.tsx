@@ -24,7 +24,7 @@ const style = {
     gap: 2
   };
 
-const ModalFollower = () => {
+const ModalFollowing = () => {
 
     interface IFollowing{
         html_url: string,
@@ -100,4 +100,4 @@ const ModalFollower = () => {
   )
 }
 
-export default ModalFollower
+export default ModalFollowing

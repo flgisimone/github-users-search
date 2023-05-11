@@ -8,6 +8,7 @@ import Avatar from '@mui/material/Avatar'
 import Link from '@mui/material/Link'
 import Skeleton from '@mui/material/Skeleton'
 import Stack from '@mui/material/Stack'
+import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 
 import ListUserTab from "../ListUserTab/ListUserTab"
 import ModalRepo from "../ModalRepo/ModalRepo"
@@ -27,8 +28,7 @@ import ModalFollowing from "../ModalFollowing/ModalFollowing"
     
   return (
     <>
-      {
-        user ? 
+      { user.id ? 
         (
           <Card sx={{ minWidth: 275, p: 2, display: "flex", flexDirection: "column", gap: 2, width: 1 }}>
 
@@ -76,18 +76,20 @@ import ModalFollowing from "../ModalFollowing/ModalFollowing"
                 </Card>
               </CardContent>
             </CardContent>
-
             <ListUserTab />
-
-          </Card>
-        ) : (
+          </Card>)
+         : (
           <Stack spacing={1} sx={{width: 1}}>
             <CardContent sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center",  p: 0, gap: 2}}>
-            <Skeleton variant="circular" width={100} height={100} />
-              <Skeleton variant="rectangular" sx={{width: 1/2, height: 80}} />
+            <Skeleton variant="circular" width={120} height={80} />
+              <Skeleton variant="rectangular" sx={{width: 1, height: 80}} />
             </CardContent>
-            <Skeleton variant="rectangular" sx={{width: 1, height: 40}} />
-            <Skeleton variant="rectangular" sx={{width: 1, height: 40}} />
+            <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
+            <Skeleton variant="rectangular" sx={{width: 1, height: 60}} />
+            <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
+            <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
+            <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
+            <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
           </Stack>
         )
       }
