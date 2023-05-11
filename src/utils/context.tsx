@@ -32,7 +32,7 @@ interface IUser {
 
 const AppProvider = ({children}: IChildren) => {
 
-    const [query, setQuery] = useState("Github")
+    const [query, setQuery] = useState("")
     const [user, setUser] = useState<IUser | {}>({})
 
     return(

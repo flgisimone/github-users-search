@@ -8,6 +8,7 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography'
 import Avatar from '@mui/material/Avatar';
+import { MY_TOKEN } from "../../utils/env"
 
 import { useGlobalContext } from "../../utils/context";
 
@@ -44,7 +45,7 @@ const ModalFollowing = () => {
     const [following, setFollowing] = useState<IFollowing | []>([])
     const [page, setPage] = useState(1)
 
-    const token = import.meta.env.MY_TOKEN
+    const token = MY_TOKEN
 
     const itemsPerPage = 10
     const numPages = Math.ceil(following.length / itemsPerPage)
