@@ -32,7 +32,7 @@ import ModalFollowing from "../ModalFollowing/ModalFollowing"
           <Card sx={{ minWidth: 275, p: 2, display: "flex", flexDirection: "column", gap: 2, width: 1 }}>
 
             <CardContent sx={{ display: "flex", gap: 2, alignItems: "center", p: 0}}>
-              <Avatar alt={user.login} src={user.avatar_url} sx={{ width: 85, height: 85 }}/>
+              <Avatar alt={user.login} src={user.avatar_url} sx={{ width: 84, height: 84 }}/>
               <CardContent sx={{display: "flex", flexDirection: "column", gap: .5, m: 0, p: 0, "&:last-child": {pb: 0}}}>
                 <Typography sx={{ fontSize: 20, m: 0}} color="text.secondary" gutterBottom>
                   {user.login}
