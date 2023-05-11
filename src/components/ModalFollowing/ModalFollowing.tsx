@@ -44,7 +44,7 @@ const ModalFollower = () => {
     const [following, setFollowing] = useState<IFollowing | []>([])
     const [page, setPage] = useState(1)
 
-    const token = "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"
+    const token = process.env.TOKEN_API_GITHUB
 
     const itemsPerPage = 10
     const numPages = Math.ceil(following.length / itemsPerPage)
