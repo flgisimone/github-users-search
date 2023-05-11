@@ -33,6 +33,7 @@ const Searchbar = () => {
         placeholder="Insert username"
         onChange={onHandleSetQuery}
         value={changeQuery}
+        required
       />
       <IconButton aria-label="search" type="submit" sx={{p: 0, m: 0}}>
         <SearchIcon style={{ fill: "#1976d2", fontSize: 30 }} />
