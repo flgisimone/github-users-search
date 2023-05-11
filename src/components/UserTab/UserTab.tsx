@@ -77,21 +77,22 @@ import ModalFollowing from "../ModalFollowing/ModalFollowing"
             </CardContent>
             <ListUserTab />
           </Card>)
-         : (
-          <Stack spacing={1} sx={{width: 1}}>
-            <CardContent sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center",  p: 0, gap: 2}}>
-            <Skeleton variant="circular" width={120} height={80} />
-              <Skeleton variant="rectangular" sx={{width: 1, height: 80}} />
-            </CardContent>
-            <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
-            <Skeleton variant="rectangular" sx={{width: 1, height: 60}} />
-            <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
-            <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
-            <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
-            <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
-          </Stack>
-        )
-      }
+         : 
+         (
+            <Stack spacing={1} sx={{width: 1}}>
+              <CardContent sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center",  p: 0, gap: 2}}>
+              <Skeleton variant="circular" width={120} height={80} />
+                <Skeleton variant="rectangular" sx={{width: 1, height: 80}} />
+              </CardContent>
+              <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
+              <Skeleton variant="rectangular" sx={{width: 1, height: 60}} />
+              <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
+              <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
+              <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
+              <Skeleton variant="rectangular" sx={{width: 1, height: 30}} />
+            </Stack>
+          )
+        }
       </>
   )
 }

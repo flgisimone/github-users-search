@@ -44,7 +44,7 @@ const ModalFollowing = () => {
     const [following, setFollowing] = useState<IFollowing | []>([])
     const [page, setPage] = useState(1)
 
-    const token = process.env.TOKEN_API_GITHUB
+    const token = import.meta.env.MY_TOKEN
 
     const itemsPerPage = 10
     const numPages = Math.ceil(following.length / itemsPerPage)
@@ -59,8 +59,8 @@ const ModalFollowing = () => {
         .then(res => setFollowing(res))
     }, [query])
 
-    const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
-        event.preventDefault()
+    const handlePageChange = (e: React.ChangeEvent<unknown>, value: number) => {
+        e.preventDefault()
         setPage(value);
       };      
     

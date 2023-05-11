@@ -53,8 +53,8 @@ const ModalRepo = () => {
         .then(res => setRepos(res))
     }, [query])
 
-    const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
-        event.preventDefault()
+    const handlePageChange = (e: React.ChangeEvent<unknown>, value: number) => {
+        e.preventDefault()
         setPage(value);
       };      
     
