@@ -29,6 +29,11 @@ const ModalRepo = () => {
     interface IRepository{
         html_url: string,
         name: string,
+        length: number,
+        avatar_url: string,
+        login: string,
+        id: number,
+        slice: Function,
     }
 
     const{ user, query } = useGlobalContext()
@@ -36,7 +41,7 @@ const ModalRepo = () => {
     const [open, setOpen] = React.useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
-    const [repos, setRepos] = useState<any[]>([])
+    const [repos, setRepos] = useState<IRepository | []>([])
     const [page, setPage] = useState(1)
 
     const itemsPerPage = 10
@@ -49,6 +54,7 @@ const ModalRepo = () => {
     }, [query])
 
     const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+        event.preventDefault()
         setPage(value);
       };      
     
@@ -69,7 +75,7 @@ const ModalRepo = () => {
                     {
                         repos.length &&
                         repos.slice((page - 1) * itemsPerPage, page * itemsPerPage)
-                        .map(repo => 
+                        .map((repo: IRepository) => 
                         <ListItem sx={{m: 0, p: 0, display: "flex", gap: 1}} key={repo.id}>
                             <GradingIcon />
                             <Link href={repo.html_url} underline="none" sx={{ fontSize: 18 }} title={repo.name}>{repo.name?.length < 25 ? (repo.name) : (repo.name?.slice(0,25) + "...")}</Link>

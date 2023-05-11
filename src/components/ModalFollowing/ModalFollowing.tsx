@@ -7,7 +7,6 @@ import Link from '@mui/material/Link';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography'
-import GradingIcon from '@mui/icons-material/Grading';
 import Avatar from '@mui/material/Avatar';
 
 import { useGlobalContext } from "../../utils/context";
@@ -27,9 +26,14 @@ const style = {
 
 const ModalFollower = () => {
 
-    interface IRepository{
+    interface IFollowing{
         html_url: string,
         name: string,
+        length: number,
+        avatar_url: string,
+        login: string,
+        id: number,
+        slice: Function,
     }
 
     const{ user, query } = useGlobalContext()
@@ -37,7 +41,7 @@ const ModalFollower = () => {
     const [open, setOpen] = React.useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
-    const [following, setFollowing] = useState<any[]>([])
+    const [following, setFollowing] = useState<IFollowing | []>([])
     const [page, setPage] = useState(1)
 
     const token = "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"
@@ -56,6 +60,7 @@ const ModalFollower = () => {
     }, [query])
 
     const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+        event.preventDefault()
         setPage(value);
       };      
     
@@ -74,9 +79,9 @@ const ModalFollower = () => {
                 <Typography sx={{textAlign: "center", fontSize: 18}}>FOLLOWING</Typography>
                 <List sx={{m: 0, p: 0, display: "flex", flexDirection: "column", gap: 1}}>
                     {
-                        following.length &&
+                        following.length > 0 &&
                         following?.slice((page - 1) * itemsPerPage, page * itemsPerPage)
-                        .map(follow => 
+                        .map((follow: IFollowing) => 
                         <ListItem sx={{m: 0, p: 0, display: "flex", gap: 1}} key={follow.id}>
                             <Avatar src={follow.avatar_url} alt={follow.login} />
                             <Link href={follow.html_url} underline="none" sx={{ fontSize: 18 }} title={follow.login}>{follow.login?.length < 25 ? (follow.login) : (follow.login?.slice(0,25) + "...")}</Link>

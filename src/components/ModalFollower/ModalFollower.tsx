@@ -26,9 +26,14 @@ const style = {
 
 const ModalFollower = () => {
 
-    interface IRepository{
+    interface IFollower{
         html_url: string,
         name: string,
+        length: number,
+        avatar_url: string,
+        login: string,
+        id: number,
+        slice: Function,
     }
 
     const{ user, query } = useGlobalContext()
@@ -36,7 +41,7 @@ const ModalFollower = () => {
     const [open, setOpen] = React.useState(false)
     const handleOpen = () => setOpen(true)
     const handleClose = () => setOpen(false)
-    const [follower, setFollower] = useState<any[]>([])
+    const [follower, setFollower] = useState<IFollower | []>([])
     const [page, setPage] = useState(1)
 
     const itemsPerPage = 10
@@ -49,6 +54,7 @@ const ModalFollower = () => {
     }, [query])
 
     const handlePageChange = (event: React.ChangeEvent<unknown>, value: number) => {
+        event.preventDefault()
         setPage(value);
       };      
     
@@ -69,7 +75,7 @@ const ModalFollower = () => {
                     {
                         follower.length &&
                         follower?.slice((page - 1) * itemsPerPage, page * itemsPerPage)
-                        .map(follow => 
+                        .map((follow: IFollower) => 
                         <ListItem sx={{m: 0, p: 0, display: "flex", gap: 1}} key={follow.id}>
                             <Avatar src={follow.avatar_url} alt={follow.login} />
                             <Link href={follow.html_url} underline="none" sx={{ fontSize: 18 }} title={follow.login}>{follow.login?.length < 25 ? (follow.login) : (follow.login?.slice(0,25) + "...")}</Link>
