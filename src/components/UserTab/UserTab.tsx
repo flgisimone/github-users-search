@@ -12,7 +12,6 @@ import Stack from '@mui/material/Stack'
 import ListUserTab from "../ListUserTab/ListUserTab"
 import ModalRepo from "../ModalRepo/ModalRepo"
 import ModalFollower from "../ModalFollower/ModalFollower"
-import ModalFollowing from "../ModalFollowing/ModalFollowing"
 
 import "./styles.css"
 
@@ -78,15 +77,20 @@ const UserTab = () => {
                   <ModalFollower />
                 </Card>
 
-                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
+                <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .7}}>
                   <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
                     FOLLOWING 
                   </Typography>
-                  <ModalFollowing />
+                  <Typography sx={{ textAlign: "center", fontSize: 18, p: 0, m: 0 }} color="text.secondary" gutterBottom>
+                    {user.following} 
+                  </Typography>
                 </Card>
               </CardContent>
             </CardContent>
             <ListUserTab />
+            <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
+              {"On Github by " + user.created_at?.slice(0,10)}
+            </Typography>
           </Card>
         )
         : 
