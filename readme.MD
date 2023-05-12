@@ -27,11 +27,11 @@
 </ul>
 
 <h3>Stack</h3>
-<span><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" style="height: 50px; padding: 20px 0; margin-right: 10px" /></span>
-<span><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" style="height: 50px; padding: 20px 0; margin-right: 15px" /></span>
-<span><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg" style="height: 50px; padding: 20px 0; margin-right: 10px" /></span>
-<span><img src="https://static.npmjs.com/3dc95981de4241b35cd55fe126ab6b2c.png" style="height: 50px; padding: 20px 0; margin-right: 15px" /></span>
-<span><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" style="height: 50px; padding: 20px 0; margin-right: 15px" /></span>
+<span><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" style="height: 50px; padding: 20px 0; margin-right: 20px" /></span>
+<span><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" style="height: 50px; padding: 20px 0; margin-right: 20px" /></span>
+<span><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/materialui/materialui-original.svg" style="height: 50px; padding: 20px 0; margin-right: 20px" /></span>
+<span><img src="https://static.npmjs.com/3dc95981de4241b35cd55fe126ab6b2c.png" style="height: 50px; padding: 20px 0; margin-right: 20px" /></span>
+<span><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/git/git-original.svg" style="height: 50px; padding: 20px 0; margin-right: 20px" /></span>
 
 <h3>Functionalities</h3>
 <ul>
