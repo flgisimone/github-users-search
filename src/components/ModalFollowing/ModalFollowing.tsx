@@ -8,7 +8,6 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import Typography from '@mui/material/Typography'
 import Avatar from '@mui/material/Avatar';
-import { MY_TOKEN } from "../../utils/env"
 
 import { useGlobalContext } from "../../utils/context";
 
@@ -45,15 +44,13 @@ const ModalFollowing = () => {
     const [following, setFollowing] = useState<IFollowing | []>([])
     const [page, setPage] = useState(1)
 
-    const token = MY_TOKEN
-
     const itemsPerPage = 10
     const numPages = Math.ceil(following.length / itemsPerPage)
 
     useEffect(() => {
         fetch(`https://api.github.com/users/${query}/following{other_user}`.replace('{other_user}', ''), {
             headers: {
-              'Authorization': `token ${token}`
+              'Authorization': `token ${"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"}`
             }
           })
         .then(res => res.json())

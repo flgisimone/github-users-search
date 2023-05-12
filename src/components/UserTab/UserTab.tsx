@@ -19,17 +19,26 @@ import "./styles.css"
 const UserTab = () => {
   
   const { query,
-    user, setUser } = useGlobalContext()
+    user, setUser, 
+    error, setError } = useGlobalContext()
     
   useEffect(() => {
     fetch(`https://api.github.com/users/${query}`)
-    .then(data =>  data.json())
+    .then(response => {
+      if(response.ok) return response.json()
+      if(response.status === 404) return setError("User Not Found! Please, search another or Try Again.")
+      if(response.status === 403) return setError("Soryy, at the moment you don't have permission to access the data, try again in a while")
+      if(response.status === 401) return setError("Your authorization failed. Please Try Refreshing the page!")
+    })
     .then(data => setUser(data))
   }, [query])
     
   return (
     <>
-      { user.id ? 
+      {
+        error && <Typography sx={{width: 300, color: "#1976d2", fontWeight: 600, textAlign: "center"}}>{error}</Typography>
+      }
+      { user?.id ? 
         (
           <Card sx={{ minWidth: 275, p: 2, display: "flex", flexDirection: "column", gap: 2, width: 1 }}>
 
@@ -91,8 +100,7 @@ const UserTab = () => {
               </>
               : 
               <>
-              <Typography sx={{fontWeight: 600, color: "#1976d2", textAlign: "center", fontSize: 20, width: 1, display: "flex", justifyContent: "center", alignItems: "center", gap: 1}}>OPS! User Not Found...<br />Search another or Try again!</Typography>
-              <CardContent sx={{ display: "flex", flexDirection: "row", justifyContent: "space-between", alignItems: "center",  p: 0, gap: 2}}>
+              <CardContent sx={{ display: "flex", flexDirection: "row", alignItems: "center",  p: 0, gap: 2}}>
               <Skeleton variant="circular" width={120} height={80} />
                 <Skeleton variant="rectangular" sx={{width: 1, height: 80}} />
               </CardContent>

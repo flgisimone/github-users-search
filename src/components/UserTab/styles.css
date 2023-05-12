@@ -1,6 +1,7 @@
 .octocatIcon{
     width: 20rem;
     animation: mover 1s infinite  alternate;
+    color: #1976d2
 }
 
 @keyframes mover {
