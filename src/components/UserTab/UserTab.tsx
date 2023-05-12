@@ -24,7 +24,10 @@ const UserTab = () => {
   useEffect(() => {
     fetch(`https://api.github.com/users/${query}`)
     .then(response => {
-      if(response.ok) return response.json()
+      if(response.ok) {
+        setError("")
+        return response.json()
+      }
       if(response.status === 404) return setError("User Not Found! Please, search another or Try Again.")
       if(response.status === 403) return setError("Soryy, at the moment you don't have permission to access the data, try again in a while")
       if(response.status === 401) return setError("Your authorization failed. Please Try Refreshing the page!")
@@ -44,10 +47,10 @@ const UserTab = () => {
             <CardContent sx={{ display: "flex", gap: 2, alignItems: "center", p: 0}}>
               <Avatar alt={user.login} src={user.avatar_url} sx={{ width: 84, height: 84 }}/>
               <CardContent sx={{display: "flex", flexDirection: "column", gap: .5, m: 0, p: 0, "&:last-child": {pb: 0}}}>
-                <Typography sx={{ fontSize: 20, m: 0}} color="text.secondary" gutterBottom>
-                  {user.login}
+                <Link href={user.html_url} underline="none" sx={{ fontSize: 24 }}>@{user.login}</Link>
+                <Typography sx={{ fontSize: 14, m: 0}} color="text.secondary" gutterBottom>
+                  {user.name}
                 </Typography>
-                <Link href={user.html_url} underline="none" sx={{ fontSize: 18 }}>@{user.login}</Link>
                 <Typography sx={{ fontSize: 12, m: 0 }} color="text.secondary" gutterBottom>
                   Last Update {user.updated_at?.slice(0,10)}
                 </Typography>

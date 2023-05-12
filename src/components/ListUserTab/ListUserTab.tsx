@@ -41,7 +41,7 @@ const ListUserTab = () => {
         user.blog &&
         <ListItem sx={{display: "flex", alignItems: "center", gap: 2, m: 0, p: 0}}>
           <LinkIcon sx={{fontSize: 30, color: "#1976d2"}}/>
-          <ListItemText primary={<Link href={user.blog} sx={{textDecoration: "none"}}>{user.blog}</Link>} secondary="Site/Blog" />
+          <ListItemText primary={<Link href={user.blog} sx={{textDecoration: "none", fontWeight: 600}}>{user.blog}</Link>} secondary="Site/Blog" />
         </ListItem>
       }
 
@@ -65,15 +65,15 @@ const ListUserTab = () => {
         user.twitter_username &&
         <ListItem sx={{display: "flex", alignItems: "center", gap: 2, m: 0, p: 0}}>
           <TwitterIcon sx={{fontSize: 30, color: "#1976d2"}}/>
-          <ListItemText primary={"@" + user.twitter_username} secondary="Twitter" />
+          <ListItemText primary={<Link href={"user.twitter_username"+user.twitter_username} sx={{textDecoration: "none", fontWeight: 600}}>{"@" + user.twitter_username}</Link>} secondary="Twitter" />
         </ListItem>
       }
 
       {
-        user.hireable &&
+        user.hireable === true &&
         <ListItem sx={{display: "flex", alignItems: "center", gap: 2, m: 0, p: 0}}>
           <WorkHistoryIcon sx={{fontSize: 30, color: "#1976d2"}}/>
-          <ListItemText primary={user.hireable} secondary="Hireable" />
+          <ListItemText primary="Hireable" />
         </ListItem>
       }
 

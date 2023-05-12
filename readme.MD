@@ -10,7 +10,6 @@
 
 <span>The information available are:</span>
 <ul>
-<li>User name</li>
 <li>User name with redirect on Github's profile</li>
 <li>Last Update Activity</li>
 <li>Biography</li>
