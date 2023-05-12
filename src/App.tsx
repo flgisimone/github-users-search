@@ -3,7 +3,6 @@ import Searchbar from './components/Searchbar/Searchbar';
 import UserTab from "./components/UserTab/UserTab.tsx";
 import Footer from "./components/Footer/Footer.tsx";
 
-
 import Typography from '@mui/material/Typography'
 
 import './App.css';
