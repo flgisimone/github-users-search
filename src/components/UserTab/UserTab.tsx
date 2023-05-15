@@ -64,8 +64,8 @@ const UserTab = () => {
               </Typography>
             }
               
-            <CardContent sx={{m: 0, p: 0, "&:last-child": {pb: 0, display: "flex", justifyContent: "space-between", gap: 2 }}}>
-              <CardContent sx={{m: 0, p: 0, "&:last-child": {p: 0, display: "flex", justifyContent: "space-between", gap: 2 }}}>
+            <CardContent sx={{m: 0, p: 0}}>
+              <CardContent sx={{m: 0, p: 0, "&:last-child": {p: 0, display: "flex", justifyContent: "space-between", gap: 0 }}}>
                 <Card sx={{p: 1, display: "flex", flexDirection: "column", gap: .5}}>
                   <Typography sx={{ fontSize: 12, m: 0, textAlign: "center" }} color="text.secondary" gutterBottom>
                     REPOSITORY 
